@@ -98,7 +98,7 @@ end
   match Lua.pcall l1 0 0 0 with
   | Lua.LUA_OK -> ()
   | _err -> begin
-      Printf.printf "%s\n%!" (Lua.tostring l1 (-1) |> Option.value ~default:"");
+      Printf.printf "%s\n%!" (Lua.tostring l1 (-1) |> (function | Some x -> x | None -> ""));
       Lua.pop l1 1;
       failwith "FATAL ERROR"
     end

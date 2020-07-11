@@ -21,3 +21,13 @@
   (name fasta_threads)
   (modules fasta_threads)
   (libraries lua test_common))
+
+(alias
+  (name    runtest)
+  (action  (progn
+             (run ./atpanic.exe)
+             (run ./fasta_threads.exe)
+             (run ./cpcall.exe)
+             (run ./userdata.exe)
+)))
+
